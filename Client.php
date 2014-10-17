@@ -32,6 +32,10 @@ class Client {
 
         // grab result and decode json
         $plain = $this->exec($url);
+        if($plain === false) {
+            return false;
+        }
+
         $json = json_decode($plain);
 
         if(isset($json->status) && $json->status === 'success') {
@@ -59,6 +63,11 @@ class Client {
         }
 
         $ret = curl_exec($ch);
+
+        if($ret === false) {
+            Log::error('cURL error: %s', curl_error($ch));
+        }
+
         curl_close($ch);
 
         return $ret;
