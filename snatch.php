@@ -84,8 +84,6 @@ class Scrape {
     }
 
     protected function applyRules($torrent) {
-        return true;
-
         if($torrent->group->categoryName !== 'Music') {
             return false;
         }
