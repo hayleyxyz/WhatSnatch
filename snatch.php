@@ -1,7 +1,7 @@
 <?php
 
-require 'client.php';
-require 'log.php';
+require 'Client.php';
+require 'Log.php';
 
 // load config
 $config = json_decode(file_get_contents('config.json'));
